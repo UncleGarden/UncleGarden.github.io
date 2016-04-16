@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="GitHub,Hexo,NexT," />
+  <meta name="keywords" content="Github,Hexo," />
 
 
 
@@ -80,16 +80,59 @@
 
 
 
-<meta name="description" content="A collection of how to build a personal blog using GitHub Pages and Hexo">
+<meta name="description" content="五十岁的老司机我笑脸扬啊
+
+Pre-requisitePlease install node.js and git in your local machine. And go to Github to create your own account.
+
+node.js
+
+git
+
+Github
+
+GitHubPages
+
+
+Create the personal blog repository">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to build a personal blog using GitHub Pages and Hexo">
+<meta property="og:title" content="How to build a personal blog using GitHub Pages and Hexo - 1">
 <meta property="og:url" content="http://yoursite.com/2016/04/12/build-a-blog/index.html">
 <meta property="og:site_name" content="Garden">
-<meta property="og:description" content="A collection of how to build a personal blog using GitHub Pages and Hexo">
-<meta property="og:updated_time" content="2016-04-13T21:55:15.000Z">
+<meta property="og:description" content="五十岁的老司机我笑脸扬啊
+
+Pre-requisitePlease install node.js and git in your local machine. And go to Github to create your own account.
+
+node.js
+
+git
+
+Github
+
+GitHubPages
+
+
+Create the personal blog repository">
+<meta property="og:image" content="http://mouapp.com/Mou_128.png">
+<meta property="og:image" content="http://mouapp.com/Mou_128.png">
+<meta property="og:image" content="http://mouapp.com/Mou_128.png">
+<meta property="og:updated_time" content="2016-04-15T20:26:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="How to build a personal blog using GitHub Pages and Hexo">
-<meta name="twitter:description" content="A collection of how to build a personal blog using GitHub Pages and Hexo">
+<meta name="twitter:title" content="How to build a personal blog using GitHub Pages and Hexo - 1">
+<meta name="twitter:description" content="五十岁的老司机我笑脸扬啊
+
+Pre-requisitePlease install node.js and git in your local machine. And go to Github to create your own account.
+
+node.js
+
+git
+
+Github
+
+GitHubPages
+
+
+Create the personal blog repository">
+<meta name="twitter:image" content="http://mouapp.com/Mou_128.png">
 
 
 
@@ -107,7 +150,7 @@
   };
 </script>
 
-  <title> How to build a personal blog using GitHub Pages and Hexo | Garden </title>
+  <title> How to build a personal blog using GitHub Pages and Hexo - 1 | Garden </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -279,7 +322,7 @@
             
             
               
-                How to build a personal blog using GitHub Pages and Hexo
+                How to build a personal blog using GitHub Pages and Hexo - 1
               
             
           </h1>
@@ -338,7 +381,42 @@
       
 
       
-        <h2 id="A-collection-of-how-to-build-a-personal-blog-using-GitHub-Pages-and-Hexo"><a href="#A-collection-of-how-to-build-a-personal-blog-using-GitHub-Pages-and-Hexo" class="headerlink" title="A collection of how to build a personal blog using GitHub Pages and Hexo"></a>A collection of how to build a personal blog using GitHub Pages and Hexo</h2>
+        <blockquote>
+<p>五十岁的老司机我笑脸扬啊</p>
+</blockquote>
+<h2 id="Pre-requisite"><a href="#Pre-requisite" class="headerlink" title="Pre-requisite"></a>Pre-requisite</h2><p>Please install node.js and git in your local machine. And go to Github to create your own account.</p>
+<ul>
+<li><p><a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a></p>
+</li>
+<li><p><a href="https://git-scm.com" target="_blank" rel="external">git</a></p>
+</li>
+<li><p><a href="https://github.com" target="_blank" rel="external">Github</a></p>
+</li>
+<li><p><a href="">GitHubPages</a></p>
+</li>
+</ul>
+<p>Create the personal blog repository in Github. The name of the new repository should be like <strong>username.github.io</strong>.</p>
+<p><img src="http://mouapp.com/Mou_128.png" alt="Mou icon"> image for the create steps.</p>
+<p>Work with terminal - </p>
+<p><img src="http://mouapp.com/Mou_128.png" alt="Mou icon"> image for the git terminal commands</p>
+<p>Go to <strong><a href="http://username.github.io" target="_blank" rel="external">http://username.github.io</a></strong></p>
+<p><img src="http://mouapp.com/Mou_128.png" alt="Mou icon"> image for the opening website.</p>
+<h2 id="Setup-Hexo"><a href="#Setup-Hexo" class="headerlink" title="Setup Hexo"></a>Setup Hexo</h2><h3 id="Hexo-install"><a href="#Hexo-install" class="headerlink" title="Hexo install"></a>Hexo install</h3><pre><code>cd path/to/your/workspace
+npm install hexo-cli -g
+</code></pre><h3 id="Hexo-deploy-local"><a href="#Hexo-deploy-local" class="headerlink" title="Hexo deploy (local)"></a>Hexo deploy (local)</h3><pre><code>cd path/to/your/workspace
+hexo init Hexo
+</code></pre><p>Install the dependency.</p>
+<pre><code>cd Hexo
+npm install
+</code></pre><p>Then, we can generate the blog and start the server to see the original blog.</p>
+<pre><code>hexo generate
+hexo server
+</code></pre><p><a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
+<h3 id="Hexo-deploy-to-Github"><a href="#Hexo-deploy-to-Github" class="headerlink" title="Hexo deploy to Github"></a>Hexo deploy to Github</h3><pre><code>hexo clean
+hexo generate
+hexo deploy
+</code></pre><p>hettp://your_user_name.github.io</p>
+
       
     </div>
     
@@ -358,11 +436,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/GitHub/" rel="tag">#GitHub</a>
+            <a href="/tags/Github/" rel="tag">#Github</a>
           
             <a href="/tags/Hexo/" rel="tag">#Hexo</a>
-          
-            <a href="/tags/NexT/" rel="tag">#NexT</a>
           
         </div>
       
@@ -440,7 +516,7 @@
                src="/images/avatar.png"
                alt="UncleGarden" />
           <p class="site-author-name" itemprop="name">UncleGarden</p>
-          <p class="site-description motion-element" itemprop="description">希望岁月在身上留下的痕迹是力量，是厚积薄发</p>
+          <p class="site-description motion-element" itemprop="description">希望岁月在身上留下的痕迹是力量，厚积薄发</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -462,7 +538,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -491,7 +567,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-collection-of-how-to-build-a-personal-blog-using-GitHub-Pages-and-Hexo"><span class="nav-number">1.</span> <span class="nav-text">A collection of how to build a personal blog using GitHub Pages and Hexo</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pre-requisite"><span class="nav-number">1.</span> <span class="nav-text">Pre-requisite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup-Hexo"><span class="nav-number">2.</span> <span class="nav-text">Setup Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-install"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-deploy-local"><span class="nav-number">2.2.</span> <span class="nav-text">Hexo deploy (local)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-deploy-to-Github"><span class="nav-number">2.3.</span> <span class="nav-text">Hexo deploy to Github</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
