@@ -95,7 +95,7 @@ GitHubPages
 
 Create the personal blog repository">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to build a personal blog using GitHub Pages and Hexo - 1 - Kick Off">
+<meta property="og:title" content="How to build a personal blog using GitHub Pages and Hexo - 1">
 <meta property="og:url" content="http://yoursite.com/2016/04/12/blog_kick-off/index.html">
 <meta property="og:site_name" content="Garden">
 <meta property="og:description" content="五十岁的老司机我笑脸扬啊
@@ -112,12 +112,10 @@ GitHubPages
 
 
 Create the personal blog repository">
-<meta property="og:image" content="http://mouapp.com/Mou_128.png">
-<meta property="og:image" content="http://mouapp.com/Mou_128.png">
-<meta property="og:image" content="http://mouapp.com/Mou_128.png">
-<meta property="og:updated_time" content="2016-04-19T20:58:06.000Z">
+<meta property="og:image" content="https://c2.staticflickr.com/2/1669/25914205943_a153016567_z.jpg">
+<meta property="og:updated_time" content="2016-04-20T08:09:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="How to build a personal blog using GitHub Pages and Hexo - 1 - Kick Off">
+<meta name="twitter:title" content="How to build a personal blog using GitHub Pages and Hexo - 1">
 <meta name="twitter:description" content="五十岁的老司机我笑脸扬啊
 
 Pre-requisitePlease install node.js and git in your local machine. And go to Github to create your own account.
@@ -132,7 +130,7 @@ GitHubPages
 
 
 Create the personal blog repository">
-<meta name="twitter:image" content="http://mouapp.com/Mou_128.png">
+<meta name="twitter:image" content="https://c2.staticflickr.com/2/1669/25914205943_a153016567_z.jpg">
 
 
 
@@ -150,7 +148,7 @@ Create the personal blog repository">
   };
 </script>
 
-  <title> How to build a personal blog using GitHub Pages and Hexo - 1 - Kick Off | Garden </title>
+  <title> How to build a personal blog using GitHub Pages and Hexo - 1 | Garden </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -322,7 +320,7 @@ Create the personal blog repository">
             
             
               
-                How to build a personal blog using GitHub Pages and Hexo - 1 - Kick Off
+                How to build a personal blog using GitHub Pages and Hexo - 1
               
             
           </h1>
@@ -399,16 +397,23 @@ Create the personal blog repository">
 </li>
 <li><p><a href="https://github.com" target="_blank" rel="external">Github</a></p>
 </li>
-<li><p><a href="">GitHubPages</a></p>
+<li><p><a href="https://pages.github.com" target="_blank" rel="external">GitHubPages</a></p>
 </li>
 </ul>
 <p>Create the personal blog repository in Github. The name of the new repository should be like <strong>username.github.io</strong>.</p>
-<p><img src="http://mouapp.com/Mou_128.png" alt="Mou icon"> image for the create steps.</p>
-<p>Work with terminal - </p>
-<p><img src="http://mouapp.com/Mou_128.png" alt="Mou icon"> image for the git terminal commands</p>
-<p>Go to <strong><a href="http://username.github.io" target="_blank" rel="external">http://username.github.io</a></strong></p>
-<p><img src="http://mouapp.com/Mou_128.png" alt="Mou icon"> image for the opening website.</p>
-<h2 id="Setup-Hexo"><a href="#Setup-Hexo" class="headerlink" title="Setup Hexo"></a>Setup Hexo</h2><h3 id="Hexo-install"><a href="#Hexo-install" class="headerlink" title="Hexo install"></a>Hexo install</h3><pre><code>cd path/to/your/workspace
+<p><img src="https://c2.staticflickr.com/2/1669/25914205943_a153016567_z.jpg" alt="Github New Repo"> </p>
+<p>Follow the link to setup the ssh key <a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="external">Generate ssh key</a></p>
+<pre><code>ssh -T git@github.com
+</code></pre><p>Follow the link to setup the index page for your own website <a href="https://pages.github.com" target="_blank" rel="external">Github Page - Hello World</a>. Go to <strong><a href="http://username.github.io" target="_blank" rel="external">http://username.github.io</a></strong>, you can see “Hello World”.</p>
+<pre><code>git clone your/new/repo
+
+cd new/repo
+echo &quot;Hello World&quot; &gt; index.html
+
+git add .
+git commit -m &apos;&apos;
+git push
+</code></pre><h2 id="Setup-Hexo"><a href="#Setup-Hexo" class="headerlink" title="Setup Hexo"></a>Setup Hexo</h2><h3 id="Hexo-install"><a href="#Hexo-install" class="headerlink" title="Hexo install"></a>Hexo install</h3><pre><code>cd path/to/your/workspace
 npm install hexo-cli -g
 </code></pre><h3 id="Hexo-deploy-local"><a href="#Hexo-deploy-local" class="headerlink" title="Hexo deploy (local)"></a>Hexo deploy (local)</h3><pre><code>cd path/to/your/workspace
 hexo init Hexo
@@ -422,7 +427,7 @@ hexo server
 <h3 id="Hexo-deploy-to-Github"><a href="#Hexo-deploy-to-Github" class="headerlink" title="Hexo deploy to Github"></a>Hexo deploy to Github</h3><pre><code>hexo clean
 hexo generate
 hexo deploy
-</code></pre><p>hettp://your_user_name.github.io</p>
+</code></pre><p><a href="http://your_user_name.github.io" target="_blank" rel="external">http://your_user_name.github.io</a></p>
 
       
     </div>
@@ -717,7 +722,7 @@ hexo deploy
     <script type="text/javascript">
       var disqus_shortname = 'unclegarden';
       var disqus_identifier = '2016/04/12/blog_kick-off/';
-      var disqus_title = 'How to build a personal blog using GitHub Pages and Hexo - 1 - Kick Off';
+      var disqus_title = 'How to build a personal blog using GitHub Pages and Hexo - 1';
       var disqus_url = 'http://yoursite.com/2016/04/12/blog_kick-off/';
 
       function run_disqus_script(disqus_script){
