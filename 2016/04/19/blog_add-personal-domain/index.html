@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Github,Hexo,GoDaddy," />
+  <meta name="keywords" content="Github,Hexo,GoDaddy,DNSPod," />
 
 
 
@@ -80,16 +80,24 @@
 
 
 
-<meta name="description" content="希望岁月在身上留下的痕迹是力量，厚积薄发">
+<meta name="description" content="开启新世界的大门">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to build a personal blog using GitHub Pages and Hexo - 3 - Add Domain">
 <meta property="og:url" content="http://yoursite.com/2016/04/19/blog_add-personal-domain/index.html">
 <meta property="og:site_name" content="Garden">
-<meta property="og:description" content="希望岁月在身上留下的痕迹是力量，厚积薄发">
-<meta property="og:updated_time" content="2016-04-19T20:57:59.000Z">
+<meta property="og:description" content="开启新世界的大门">
+<meta property="og:image" content="https://c2.staticflickr.com/2/1666/26536842636_43d1961fa6_z.jpg">
+<meta property="og:image" content="https://c2.staticflickr.com/2/1641/26290384940_5d4f00c69b_z.jpg">
+<meta property="og:image" content="https://c2.staticflickr.com/2/1593/26563361795_c42b4eee6d_z.jpg">
+<meta property="og:image" content="https://c2.staticflickr.com/2/1534/26497288431_f472049aac_z.jpg">
+<meta property="og:image" content="https://c2.staticflickr.com/2/1461/26471035452_594f906d4a_z.jpg">
+<meta property="og:image" content="https://c2.staticflickr.com/2/1718/26471273182_3e99cf0f85_z.jpg">
+<meta property="og:image" content="https://c2.staticflickr.com/2/1494/26471273152_1aa4d5146f_z.jpg">
+<meta property="og:updated_time" content="2016-04-21T19:44:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to build a personal blog using GitHub Pages and Hexo - 3 - Add Domain">
-<meta name="twitter:description" content="希望岁月在身上留下的痕迹是力量，厚积薄发">
+<meta name="twitter:description" content="开启新世界的大门">
+<meta name="twitter:image" content="https://c2.staticflickr.com/2/1666/26536842636_43d1961fa6_z.jpg">
 
 
 
@@ -345,7 +353,34 @@
       
 
       
-        
+        <p><img src="https://c2.staticflickr.com/2/1666/26536842636_43d1961fa6_z.jpg" alt="GoDaddy"></p>
+<blockquote>
+<p>开启新世界的大门<br><a id="more"></a></p>
+</blockquote>
+<p>First, make sure that you can visit you own blog by using the Github Page url, like <strong>your-github-account-name.github.io</strong>.</p>
+<p>The next step is going to link to your own domain, then you can visit your blog like <a href="www.unclegarden.com">www.unclegarden.com</a>.</p>
+<h2 id="Hexo-add-CNAME"><a href="#Hexo-add-CNAME" class="headerlink" title="Hexo - add CNAME"></a>Hexo - add CNAME</h2><p>We need to create a new file - CNAME. Put this file in our Hexo project under source folder.</p>
+<pre><code>../Hexo/source ls
+CNAME _posts
+</code></pre><p>In the CNAME file, what you should write is only your own domain name.</p>
+<pre><code>cat CNAME
+unclegarden.com
+</code></pre><p>Then, you just need to do the <strong>hexo deploy</strong>, the CNAME file will be added.</p>
+<p><img src="https://c2.staticflickr.com/2/1641/26290384940_5d4f00c69b_z.jpg" alt="CNAME"></p>
+<h2 id="GoDaddy"><a href="#GoDaddy" class="headerlink" title="GoDaddy"></a>GoDaddy</h2><p>After you buying your own domain, just go to your <strong>domain detals</strong> and let us start to do the configuration.</p>
+<p><img src="https://c2.staticflickr.com/2/1593/26563361795_c42b4eee6d_z.jpg" alt="Domain Detail"></p>
+<h3 id="Update-A-host"><a href="#Update-A-host" class="headerlink" title="Update A host"></a>Update A host</h3><p>First, we need to update our DNS record pointing to Github’s server.</p>
+<p>Detail information: <a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/" target="_blank" rel="external">Using a custom domain with GitHub Pages</a></p>
+<p><img src="https://c2.staticflickr.com/2/1534/26497288431_f472049aac_z.jpg" alt="A Host"></p>
+<h3 id="Update-CNAME"><a href="#Update-CNAME" class="headerlink" title="Update CNAME"></a>Update CNAME</h3><p>We also need to update the CNAME. www host points to our Github Pages blog address. </p>
+<p><img src="https://c2.staticflickr.com/2/1461/26471035452_594f906d4a_z.jpg" alt="CNAME_config"></p>
+<h2 id="DNSPod"><a href="#DNSPod" class="headerlink" title="DNSPod"></a>DNSPod</h2><p><strong>For some reason</strong>, we use DNSPod, you can google it. <a href="https://support.dnspod.cn/Kb/showarticle/tsid/42/" target="_blank" rel="external">DNSPod</a></p>
+<h3 id="Setup-domain-in-DNSPod"><a href="#Setup-domain-in-DNSPod" class="headerlink" title="Setup domain in DNSPod"></a>Setup domain in DNSPod</h3><p>Create a new DNSPod account, and add your domain like following.</p>
+<p><img src="https://c2.staticflickr.com/2/1718/26471273182_3e99cf0f85_z.jpg" alt="DNSPod"></p>
+<h3 id="Update-Godaddy"><a href="#Update-Godaddy" class="headerlink" title="Update Godaddy"></a>Update Godaddy</h3><p>Update the <strong>Nameserver Settings</strong> in GoDaddy.</p>
+<p><img src="https://c2.staticflickr.com/2/1494/26471273152_1aa4d5146f_z.jpg" alt="Godaddy DNS"></p>
+<p>Wait for several minutes, you can use you own domain to visit your blog.</p>
+
       
     </div>
     
@@ -370,6 +405,8 @@
             <a href="/tags/Hexo/" rel="tag">#Hexo</a>
           
             <a href="/tags/GoDaddy/" rel="tag">#GoDaddy</a>
+          
+            <a href="/tags/DNSPod/" rel="tag">#DNSPod</a>
           
         </div>
       
@@ -480,7 +517,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -520,7 +557,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-add-CNAME"><span class="nav-number">1.</span> <span class="nav-text">Hexo - add CNAME</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GoDaddy"><span class="nav-number">2.</span> <span class="nav-text">GoDaddy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-A-host"><span class="nav-number">2.1.</span> <span class="nav-text">Update A host</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-CNAME"><span class="nav-number">2.2.</span> <span class="nav-text">Update CNAME</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNSPod"><span class="nav-number">3.</span> <span class="nav-text">DNSPod</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Setup-domain-in-DNSPod"><span class="nav-number">3.1.</span> <span class="nav-text">Setup domain in DNSPod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-Godaddy"><span class="nav-number">3.2.</span> <span class="nav-text">Update Godaddy</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
