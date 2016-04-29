@@ -80,56 +80,19 @@
 
 
 
-<meta name="description" content="五十岁的老司机我笑脸扬啊
-
-Pre-requisitePlease install node.js and git in your local machine. And go to Github to create your own account.
-
-node.js
-
-git
-
-Github
-
-GitHubPages
-
-
-Create the personal blog repository">
+<meta name="description" content="五十岁的老司机我笑脸扬啊">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to build a personal blog using GitHub Pages and Hexo - 1">
 <meta property="og:url" content="http://yoursite.com/2016/04/12/blog_kick-off/index.html">
 <meta property="og:site_name" content="Garden">
-<meta property="og:description" content="五十岁的老司机我笑脸扬啊
-
-Pre-requisitePlease install node.js and git in your local machine. And go to Github to create your own account.
-
-node.js
-
-git
-
-Github
-
-GitHubPages
-
-
-Create the personal blog repository">
+<meta property="og:description" content="五十岁的老司机我笑脸扬啊">
 <meta property="og:image" content="https://c2.staticflickr.com/2/1669/25914205943_a153016567_z.jpg">
-<meta property="og:updated_time" content="2016-04-20T08:09:48.000Z">
+<meta property="og:image" content="https://c2.staticflickr.com/2/1612/26691436916_0a8bde4585_z.jpg">
+<meta property="og:image" content="https://c2.staticflickr.com/2/1717/26691436936_d420276b68_z.jpg">
+<meta property="og:updated_time" content="2016-04-29T20:50:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to build a personal blog using GitHub Pages and Hexo - 1">
-<meta name="twitter:description" content="五十岁的老司机我笑脸扬啊
-
-Pre-requisitePlease install node.js and git in your local machine. And go to Github to create your own account.
-
-node.js
-
-git
-
-Github
-
-GitHubPages
-
-
-Create the personal blog repository">
+<meta name="twitter:description" content="五十岁的老司机我笑脸扬啊">
 <meta name="twitter:image" content="https://c2.staticflickr.com/2/1669/25914205943_a153016567_z.jpg">
 
 
@@ -389,6 +352,7 @@ Create the personal blog repository">
         <blockquote>
 <p>五十岁的老司机我笑脸扬啊</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="Pre-requisite"><a href="#Pre-requisite" class="headerlink" title="Pre-requisite"></a>Pre-requisite</h2><p>Please install node.js and git in your local machine. And go to Github to create your own account.</p>
 <ul>
 <li><p><a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a></p>
@@ -424,10 +388,17 @@ npm install
 <pre><code>hexo generate
 hexo server
 </code></pre><p><a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
-<h3 id="Hexo-deploy-to-Github"><a href="#Hexo-deploy-to-Github" class="headerlink" title="Hexo deploy to Github"></a>Hexo deploy to Github</h3><pre><code>hexo clean
+<h3 id="Hexo-deploy-to-Github"><a href="#Hexo-deploy-to-Github" class="headerlink" title="Hexo deploy to Github"></a>Hexo deploy to Github</h3><h4 id="Update-config-yml"><a href="#Update-config-yml" class="headerlink" title="Update _config.yml"></a>Update _config.yml</h4><p>Update the Hexo/_config.yml, link to your own github repo.</p>
+<p><img src="https://c2.staticflickr.com/2/1612/26691436916_0a8bde4585_z.jpg" alt="Update repo"></p>
+<h4 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h4><pre><code>hexo clean
 hexo generate
 hexo deploy
-</code></pre><p><a href="http://your_user_name.github.io" target="_blank" rel="external">http://your_user_name.github.io</a></p>
+</code></pre><p>you may meet this error:<br><img src="https://c2.staticflickr.com/2/1717/26691436936_d420276b68_z.jpg" alt="error"></p>
+<p>First, update the <strong>depoly type</strong> to <strong>git</strong> (in the above _config.yml)</p>
+<p>and run the following code</p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre><p>Then, run the deploy code again.</p>
+<p>You are all set! Go to <strong><a href="http://your_user_name.github.io" target="_blank" rel="external">http://your_user_name.github.io</a></strong></p>
 
       
     </div>
@@ -601,7 +572,7 @@ hexo deploy
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pre-requisite"><span class="nav-number">1.</span> <span class="nav-text">Pre-requisite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup-Hexo"><span class="nav-number">2.</span> <span class="nav-text">Setup Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-install"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-deploy-local"><span class="nav-number">2.2.</span> <span class="nav-text">Hexo deploy (local)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-deploy-to-Github"><span class="nav-number">2.3.</span> <span class="nav-text">Hexo deploy to Github</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pre-requisite"><span class="nav-number">1.</span> <span class="nav-text">Pre-requisite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup-Hexo"><span class="nav-number">2.</span> <span class="nav-text">Setup Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-install"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-deploy-local"><span class="nav-number">2.2.</span> <span class="nav-text">Hexo deploy (local)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-deploy-to-Github"><span class="nav-number">2.3.</span> <span class="nav-text">Hexo deploy to Github</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Update-config-yml"><span class="nav-number">2.3.1.</span> <span class="nav-text">Update _config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deploy"><span class="nav-number">2.3.2.</span> <span class="nav-text">Deploy</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
