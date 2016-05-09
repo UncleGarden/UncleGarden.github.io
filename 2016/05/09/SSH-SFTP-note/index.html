@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Garden">
 <meta property="og:description" content="少侠，你迷路了">
 <meta property="og:image" content="https://c2.staticflickr.com/8/7500/26828046962_a0272b161e_z.jpg">
-<meta property="og:updated_time" content="2016-05-09T22:57:13.000Z">
+<meta property="og:updated_time" content="2016-05-09T23:48:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Using SSH and SFTP in Mac OS X">
 <meta name="twitter:description" content="少侠，你迷路了">
@@ -352,6 +352,47 @@
 <p>少侠，你迷路了</p>
 </blockquote>
 <a id="more"></a>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>SSH and SFTP are command line applications available from the Terminal (located at /Applications/Utilities/Terminal).</p>
+<h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><p>SSH client is a program for logging into a remote machine and for executing commands on a remote machine.</p>
+<h2 id="Connecting"><a href="#Connecting" class="headerlink" title="Connecting"></a>Connecting</h2><p>To connect using ssh type at the terminal</p>
+<pre><code>ssh username@host_server
+</code></pre><p>Username is your network account username and host_server is the remote server to which you’re connecting.</p>
+<h1 id="SFTP"><a href="#SFTP" class="headerlink" title="SFTP"></a>SFTP</h1><p>SFTP is an interactive file transfer program, similar to ftp, which performs all operations over an encrypted ssh transport.</p>
+<h2 id="Connecting-1"><a href="#Connecting-1" class="headerlink" title="Connecting"></a>Connecting</h2><p>To connect using sftp type at the terminal:</p>
+<pre><code>sftp username@host_server
+</code></pre><p>Username is your network account username and host_server is the remote server to which you’re connecting.</p>
+<h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><p>The commands available in SFTP are:</p>
+<p>Command    Description</p>
+<pre><code>pwd            Print working directory of remote host
+lpwd        Print working directory of local client
+
+cd            Change directory on the remote host
+lcd            Change directory on the local client
+
+ls            List director on the remote host
+lls            List directory on the local client
+
+mkdir        Make directory on remote host
+lmkdir        Make directory on local client
+
+get            Download file from remote host to local client
+put            Upload file from local client to remote host
+help        Display help text
+</code></pre><h1 id="Example-scenario"><a href="#Example-scenario" class="headerlink" title="Example scenario"></a>Example scenario</h1><p>Background:<br>You want to connect to the remote server, to do two things:</p>
+<ol>
+<li>Change the update time of a file to current time in somePath/A folder </li>
+<li>Create a new file using the same file name in somePath/B folder</li>
+</ol>
+<p>If just use SSH, you can simply <strong>touch</strong> to update the file in A and <strong>touch</strong> to create a new file in B.<br>But, for some reason, you can only use SFTP.</p>
+<p>Solution:</p>
+<ol>
+<li>Use <strong>get</strong> to download the file from A to local client <strong>some/path</strong></li>
+<li>Use <strong>put</strong> to upload the file to A first, to update the time of the file.</li>
+<li>Use the <strong>put</strong> again, upload the file to B, just as create a new file.</li>
+</ol>
+<hr>
+<p>P.S. It will be better that you have different users for different actions. SFTP - sftp users, server - server users, etc.</p>
+
       
     </div>
     
@@ -520,7 +561,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH"><span class="nav-number">2.</span> <span class="nav-text">SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Connecting"><span class="nav-number">2.1.</span> <span class="nav-text">Connecting</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SFTP"><span class="nav-number">3.</span> <span class="nav-text">SFTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Connecting-1"><span class="nav-number">3.1.</span> <span class="nav-text">Connecting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Commands"><span class="nav-number">3.2.</span> <span class="nav-text">Commands</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-scenario"><span class="nav-number">4.</span> <span class="nav-text">Example scenario</span></a></li></ol></div>
             
           </div>
         </section>
