@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -80,16 +80,18 @@
 
 
 
-<meta name="description" content="希望岁月在身上留下的痕迹是力量，厚积薄发">
+<meta name="description" content="Python challenge 1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python-challenge-1">
-<meta property="og:url" content="http://yoursite.com/2016/05/10/python-challenge_1/index.html">
+<meta property="og:title" content="Python challenge - 1 - letter mapping">
+<meta property="og:url" content="http://yoursite.com/2016/05/10/python-challenge_1_letter_mapping/index.html">
 <meta property="og:site_name" content="Garden">
-<meta property="og:description" content="希望岁月在身上留下的痕迹是力量，厚积薄发">
-<meta property="og:updated_time" content="2016-05-10T07:43:10.000Z">
+<meta property="og:description" content="Python challenge 1">
+<meta property="og:image" content="https://c2.staticflickr.com/8/7603/26945061026_277c8cfabe_z.jpg">
+<meta property="og:updated_time" content="2016-05-13T00:05:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python-challenge-1">
-<meta name="twitter:description" content="希望岁月在身上留下的痕迹是力量，厚积薄发">
+<meta name="twitter:title" content="Python challenge - 1 - letter mapping">
+<meta name="twitter:description" content="Python challenge 1">
+<meta name="twitter:image" content="https://c2.staticflickr.com/8/7603/26945061026_277c8cfabe_z.jpg">
 
 
 
@@ -107,7 +109,7 @@
   };
 </script>
 
-  <title> python-challenge-1 | Garden </title>
+  <title> Python challenge - 1 - letter mapping | Garden </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -279,7 +281,7 @@
             
             
               
-                python-challenge-1
+                Python challenge - 1 - letter mapping
               
             
           </h1>
@@ -297,13 +299,32 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python-challenge/" itemprop="url" rel="index">
+                    <span itemprop="name">Python challenge</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/10/python-challenge_1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/05/10/python-challenge_1/" itemprop="commentsCount"></span>
+                <a href="/2016/05/10/python-challenge_1_letter_mapping/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/05/10/python-challenge_1_letter_mapping/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -326,7 +347,45 @@
       
 
       
-        
+        <p><img src="https://c2.staticflickr.com/8/7603/26945061026_277c8cfabe_z.jpg" alt="0"></p>
+<p><a href="http://www.pythonchallenge.com/pc/def/map.html" target="_blank" rel="external">Python challenge 1</a></p>
+<a id="more"></a>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>From the picture, we can see that<br>‘K’ -&gt; ‘M’<br>‘O’ -&gt; ‘Q’<br>‘E’ -&gt; ‘G’</p>
+<p>as a CSer, I assume most of us will come up the solution using ASCii Table. Based on the ASCii Table ‘a’~’z’ =&gt; ‘97’~’122’.<br>107 -&gt; 109<br>111 -&gt; 113<br>101 -&gt; 103</p>
+<p>Which means, convert the letter to the ASCii code and add 2, and then convert the code back to letter.</p>
+<ol>
+<li>The hint is: <strong>try to change the URL address</strong>.</li>
+<li>The current url is: <strong><a href="http://www.pythonchallenge.com/pc/def/0.html" target="_blank" rel="external">http://www.pythonchallenge.com/pc/def/0.html</a></strong>.</li>
+</ol>
+<p>So, we should try to replace the 0 with the answer of the equation.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><pre><code>str = &quot;g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dmp. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr&apos;q ufw rfgq rcvr gq qm jmle. sqgle qrpgle.kyicrpylq() gqpcamkkclbcb. lmu ynnjw ml rfc spj.&quot;
+result = []
+
+for l in str:
+    if ord(l) in range(97, 123):
+        if ord(l) + 2 &gt; 122:
+            result.append(chr(97 - 1 + (ord(l)+2) % 122))
+        else:
+            result.append(chr(ord(l)+2))
+    else:    
+        result.append(l)
+
+print &quot;&quot;.join(result)
+# i hope you didnt translate it zy hand. thats what computers are for. doing it in zy hand is inefficient and that&apos;s why this text is so long. using string.maketrans() is recommended. now apply on the url.
+</code></pre><p>Using the above code, we can convert the ‘map’ from url to ‘ocr’.</p>
+<h1 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h1><p><strong><a href="http://www.pythonchallenge.com/pc/def/ocr.html" target="_blank" rel="external">http://www.pythonchallenge.com/pc/def/ocr.html</a></strong></p>
+<h1 id="P-S"><a href="#P-S" class="headerlink" title="P.S."></a>P.S.</h1><p>After we convert the tip, we get ‘using string.maketrans() is recommended’.</p>
+<pre><code>import string
+
+a = &quot;abcdefghijklmnopqrstuvwxyz&quot;
+b = &quot;cdefghijklmnopqrstuvwxyzab&quot;
+
+table = string.maketrans(a, b)
+</code></pre><p><code>str.translate(table)</code> will also give the same answer. <code>maketrans</code> need you to provide two string in the same length. Also, you can do <code>str.translate(table, &#39;a&#39;)</code> to remove every ‘a’ from the original string, which means every ‘c’ from the answer will be removed.</p>
+<pre><code>print str.translate(table, &apos;a&apos;)
+
+# i hope you didnt translate it by hand. thats what omputers are for. doing it in by hand is ineffiient and that&apos;s why this text is so long. using string.maketrans() is reommended. now apply on the url.
+</code></pre>
       
     </div>
     
@@ -343,6 +402,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
       
 
       
@@ -491,7 +556,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Analysis"><span class="nav-number">1.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Answer"><span class="nav-number">3.</span> <span class="nav-text">Answer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#P-S"><span class="nav-number">4.</span> <span class="nav-text">P.S.</span></a></li></ol></div>
             
           </div>
         </section>
@@ -611,9 +676,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'unclegarden';
-      var disqus_identifier = '2016/05/10/python-challenge_1/';
-      var disqus_title = 'python-challenge-1';
-      var disqus_url = 'http://yoursite.com/2016/05/10/python-challenge_1/';
+      var disqus_identifier = '2016/05/10/python-challenge_1_letter_mapping/';
+      var disqus_title = 'Python challenge - 1 - letter mapping';
+      var disqus_url = 'http://yoursite.com/2016/05/10/python-challenge_1_letter_mapping/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
