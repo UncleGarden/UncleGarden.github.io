@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="Python,urllib,re," />
 
 
 
@@ -82,14 +82,14 @@
 
 <meta name="description" content="Python challenge 2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python-challenge-2">
-<meta property="og:url" content="http://yoursite.com/2016/05/10/python-challenge_2/index.html">
+<meta property="og:title" content="Python challenge - 2 - page source">
+<meta property="og:url" content="http://yoursite.com/2016/05/10/python-challenge_2_page-source/index.html">
 <meta property="og:site_name" content="Garden">
 <meta property="og:description" content="Python challenge 2">
 <meta property="og:image" content="https://c2.staticflickr.com/8/7712/26928342371_ec1a97b47a_z.jpg">
-<meta property="og:updated_time" content="2016-05-13T22:54:57.000Z">
+<meta property="og:updated_time" content="2016-05-16T21:35:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python-challenge-2">
+<meta name="twitter:title" content="Python challenge - 2 - page source">
 <meta name="twitter:description" content="Python challenge 2">
 <meta name="twitter:image" content="https://c2.staticflickr.com/8/7712/26928342371_ec1a97b47a_z.jpg">
 
@@ -109,7 +109,7 @@
   };
 </script>
 
-  <title> python-challenge-2 | Garden </title>
+  <title> Python challenge - 2 - page source | Garden </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -281,7 +281,7 @@
             
             
               
-                python-challenge-2
+                Python challenge - 2 - page source
               
             
           </h1>
@@ -323,8 +323,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/10/python-challenge_2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/05/10/python-challenge_2/" itemprop="commentsCount"></span>
+                <a href="/2016/05/10/python-challenge_2_page-source/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/05/10/python-challenge_2_page-source/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -347,9 +347,31 @@
       
 
       
-        <p><img src="https://c2.staticflickr.com/8/7712/26928342371_ec1a97b47a_z.jpg" alt="0"></p>
+        <p><img src="https://c2.staticflickr.com/8/7712/26928342371_ec1a97b47a_z.jpg" alt="2"></p>
 <p><a href="http://www.pythonchallenge.com/pc/def/ocr.html" target="_blank" rel="external">Python challenge 2</a></p>
 <a id="more"></a>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>Based on the hint <code>recognize the characters. maybe they are in the book, 
+but MAYBE they are in the page source.</code> It asks us to recognize the characters, which might be in the book or the page source. </p>
+<p>There is a lot of characters in the book which can not be read easily. So, let try to get the characters from the page source.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>Now, we only have the url of this puzzle. We need to use the <code>urllib</code> library to get the current page source.</p>
+<pre><code>import urllib2
+
+response= urllib2.urlopen(&quot;http://www.pythonchallenge.com/pc/def/ocr.html&quot;)
+source = response.read()
+response.close()
+
+print source
+</code></pre><p>Here, what we get is the whole page source of the current page. Inside the page source, we get one more hint. <code>&lt;!--find rare characters in the mess below: --&gt;</code>, and a mess inside the comment block.</p>
+<p>Next, we need to get all the characters from the mess.</p>
+<pre><code>import re
+
+data = re.findall(r&apos;&lt;!--(.+?)--&gt;&apos;, source, re.S)
+charList = re.findall(r&apos;([a-zA-Z])&apos;, data[1])
+print (&quot;&quot;).join(charList)
+</code></pre><p>After we filtering all the characters, we will get a word <code>equality</code>.</p>
+<h1 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h1><p><strong><a href="http://www.pythonchallenge.com/pc/def/equality.html" target="_blank" rel="external">http://www.pythonchallenge.com/pc/def/equality.html</a></strong></p>
+<h1 id="Modeles-urllib-urllib2-re"><a href="#Modeles-urllib-urllib2-re" class="headerlink" title="Modeles - urllib, urllib2, re"></a>Modeles - urllib, urllib2, re</h1><p>…</p>
+
       
     </div>
     
@@ -371,6 +393,10 @@
           
             <a href="/tags/Python/" rel="tag">#Python</a>
           
+            <a href="/tags/urllib/" rel="tag">#urllib</a>
+          
+            <a href="/tags/re/" rel="tag">#re</a>
+          
         </div>
       
 
@@ -378,7 +404,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/10/python-challenge_1_letter_mapping/" rel="next" title="Python challenge - 1 - letter mapping">
+              <a href="/2016/05/10/python-challenge_1_letter-mapping/" rel="next" title="Python challenge - 1 - letter mapping">
                 <i class="fa fa-chevron-left"></i> Python challenge - 1 - letter mapping
               </a>
             
@@ -480,7 +506,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -520,7 +546,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Analysis"><span class="nav-number">1.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Answer"><span class="nav-number">3.</span> <span class="nav-text">Answer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Modeles-urllib-urllib2-re"><span class="nav-number">4.</span> <span class="nav-text">Modeles - urllib, urllib2, re</span></a></li></ol></div>
             
           </div>
         </section>
@@ -640,9 +666,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'unclegarden';
-      var disqus_identifier = '2016/05/10/python-challenge_2/';
-      var disqus_title = 'python-challenge-2';
-      var disqus_url = 'http://yoursite.com/2016/05/10/python-challenge_2/';
+      var disqus_identifier = '2016/05/10/python-challenge_2_page-source/';
+      var disqus_title = 'Python challenge - 2 - page source';
+      var disqus_url = 'http://yoursite.com/2016/05/10/python-challenge_2_page-source/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
