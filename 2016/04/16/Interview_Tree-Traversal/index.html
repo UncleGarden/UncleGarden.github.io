@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/16/Interview_Tree-Traversal/index.html">
 <meta property="og:site_name" content="Garden">
 <meta property="og:description" content="自挂东南枝">
-<meta property="og:updated_time" content="2016-05-18T08:29:42.000Z">
+<meta property="og:updated_time" content="2016-05-19T22:24:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Interview - Tree - Traversal">
 <meta name="twitter:description" content="自挂东南枝">
@@ -355,7 +355,61 @@
 <p>107    Binary Tree Level Order Traversal II</p>
 <p>144    Binary Tree Preorder Traversal</p>
 <p>145    Binary Tree Postorder Traversal</p>
+<hr>
+<h1 id="Level-Order"><a href="#Level-Order" class="headerlink" title="Level Order"></a>Level Order</h1><p>102, 和 107 两题的唯一区别就是一个是要你从上往下按照层次排列每层的元素，一个则是需要从下往上。</p>
+<p>根据解题套路来</p>
+<ol>
+<li><strong>input</strong>是root，然后Leetcode给出了TreeNode的数据结构（多想点就是有些题数据结构可以自己改）</li>
+<li><strong>报错判断</strong>。对于TreeNode，我们一般处理是会取值.val，或者取左右子树.left, .right。所以需要对root是不是None进行判断。</li>
+<li><strong>入口</strong>。对于level order，我们肯定需要记录一下层，然后才能准确的对节点进行操作。入口当然就是root，第0层。同时，这个层的记录，也是用来判断是否需要增加一个新的list来添加新一层的节点值。</li>
+<li><strong>出口</strong>。出口就是当节点是None的时候，返回跳出。</li>
+<li><strong>Test Case</strong>。</li>
+<li>空间复杂度，时间复杂度。？，O（n）</li>
+<li>Follow up。递归之后，一般考虑迭代行不行。</li>
+</ol>
+<pre><code>public class Solution {
+    public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) {
+        List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
+        helper(root, result, 0);
+        return result;
+    }
 
+        private void helper(TreeNode root, List&lt;List&lt;Integer&gt;&gt; result, Integer level) {
+        if (root == null) return;
+        if (result.size() == level) result.add(new ArrayList&lt;Integer&gt;());
+        result.get(level).add(root.val);
+        helper(root.left, result, level+1);
+        helper(root.right, result, level+1);
+    }    
+}
+</code></pre><p>迭代一般就是使用额外的Stack，Queue或者其他的数据结构来做记录。</p>
+<pre><code>public class Solution {
+    public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) {
+        List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
+        Queue&lt;TreeNode&gt; queue = new LinkedList&lt;&gt;();
+
+        queue.add(root);
+
+        while(!queue.isEmpty()){
+            List&lt;Integer&gt; level = new ArrayList&lt;&gt;();
+            int len = queue.size();
+            for(int i = 0; i &lt; len; i++){
+                TreeNode node = queue.poll();
+                if(node != null){
+                    level.add(node.val);
+                    queue.add(node.left);
+                    queue.add(node.right);
+                }
+            }
+
+            if(!level.isEmpty()){
+                result.add(level);
+            }
+        }
+        return result;
+    }
+}
+</code></pre><h1 id="Inorder"><a href="#Inorder" class="headerlink" title="Inorder"></a>Inorder</h1><h1 id="Preorder"><a href="#Preorder" class="headerlink" title="Preorder"></a>Preorder</h1><h1 id="Postorder"><a href="#Postorder" class="headerlink" title="Postorder"></a>Postorder</h1>
       
     </div>
     
@@ -528,7 +582,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Level-Order"><span class="nav-number">1.</span> <span class="nav-text">Level Order</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inorder"><span class="nav-number">2.</span> <span class="nav-text">Inorder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Preorder"><span class="nav-number">3.</span> <span class="nav-text">Preorder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Postorder"><span class="nav-number">4.</span> <span class="nav-text">Postorder</span></a></li></ol></div>
             
           </div>
         </section>
