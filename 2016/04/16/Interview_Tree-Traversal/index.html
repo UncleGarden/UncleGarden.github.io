@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/16/Interview_Tree-Traversal/index.html">
 <meta property="og:site_name" content="Garden">
 <meta property="og:description" content="自挂东南枝">
-<meta property="og:updated_time" content="2016-05-19T22:24:30.000Z">
+<meta property="og:updated_time" content="2016-05-27T18:11:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Interview - Tree - Traversal">
 <meta name="twitter:description" content="自挂东南枝">
@@ -409,7 +409,52 @@
         return result;
     }
 }
-</code></pre><h1 id="Inorder"><a href="#Inorder" class="headerlink" title="Inorder"></a>Inorder</h1><h1 id="Preorder"><a href="#Preorder" class="headerlink" title="Preorder"></a>Preorder</h1><h1 id="Postorder"><a href="#Postorder" class="headerlink" title="Postorder"></a>Postorder</h1>
+</code></pre><h1 id="Inorder"><a href="#Inorder" class="headerlink" title="Inorder"></a>Inorder</h1><p>递归</p>
+<pre><code>public class Solution {
+    public List&lt;Integer&gt; inorderTraversal(TreeNode root) {
+        List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
+        inorderTraversalHelper(result, root);
+        return result;
+    }
+
+    private void inorderTraversalHelper(List&lt;Integer&gt; result, TreeNode root){
+        if(root == null) return;
+        inorderTraversalHelper(result, root.left);
+        result.add(root.val);
+        inorderTraversalHelper(result, root.right);
+    }
+}
+</code></pre><h1 id="Preorder"><a href="#Preorder" class="headerlink" title="Preorder"></a>Preorder</h1><p>递归</p>
+<pre><code>public class Solution {
+    public List&lt;Integer&gt; preorderTraversal(TreeNode root) {
+        List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
+        preorderTraversalHelper(result, root);
+        return result;
+    }
+
+    private void preorderTraversalHelper(List&lt;Integer&gt; result, TreeNode root){
+        if(root == null) return;
+        result.add(root.val);
+        preorderTraversalHelper(result, root.left);
+        preorderTraversalHelper(result, root.right);
+    }
+}
+</code></pre><h1 id="Postorder"><a href="#Postorder" class="headerlink" title="Postorder"></a>Postorder</h1><p>递归</p>
+<pre><code>public class Solution {
+    public List&lt;Integer&gt; postorderTraversal(TreeNode root) {
+        List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
+        postorderTraversalHelper(result, root);
+        return result;
+    }
+
+    private void postorderTraversalHelper(List&lt;Integer&gt; result, TreeNode root){
+        if(root == null) return;
+        postorderTraversalHelper(result, root.left);
+        postorderTraversalHelper(result, root.right);
+        result.add(root.val);
+    }
+}
+</code></pre>
       
     </div>
     
