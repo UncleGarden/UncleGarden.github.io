@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/16/Interview_Tree-Traversal/index.html">
 <meta property="og:site_name" content="Garden">
 <meta property="og:description" content="自挂东南枝">
-<meta property="og:updated_time" content="2016-06-01T05:21:23.000Z">
+<meta property="og:updated_time" content="2016-06-01T08:04:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Interview - Tree - Traversal">
 <meta name="twitter:description" content="自挂东南枝">
@@ -359,10 +359,10 @@
 <h1 id="Level-Order"><a href="#Level-Order" class="headerlink" title="Level Order"></a>Level Order</h1><p>102, 和 107 两题的唯一区别就是一个是要你从上往下按照层次排列每层的元素，一个则是需要从下往上。</p>
 <p>根据解题套路来</p>
 <ol>
-<li><strong>input</strong>是root，然后Leetcode给出了TreeNode的数据结构（多想点就是有些题数据结构可以自己改）</li>
-<li><strong>报错判断</strong>。对于TreeNode，我们一般处理是会取值.val，或者取左右子树.left, .right。所以需要对root是不是None进行判断。</li>
+<li><strong>input</strong>。root，然后Leetcode给出了TreeNode的数据结构（发散下思维，就是面试的时候，有些follow up，或者是开始答题之前，数据结构问清楚，可以自己设计）</li>
+<li><strong>报错判断</strong>。对于TreeNode，我们一般处理是会取值.val，或者取左右子树.left, .right。所以需要对current node是不是null进行判断。</li>
 <li><strong>入口</strong>。对于level order，我们肯定需要记录一下层，然后才能准确的对节点进行操作。入口当然就是root，第0层。同时，这个层的记录，也是用来判断是否需要增加一个新的list来添加新一层的节点值。</li>
-<li><strong>出口</strong>。出口就是当节点是None的时候，返回跳出。</li>
+<li><strong>出口</strong>。出口就是当节点是null的时候，就是到了null叶子，返回。</li>
 <li><strong>Test Case</strong>。</li>
 <li>空间复杂度，时间复杂度。？，O（n）</li>
 <li>Follow up。递归之后，一般考虑迭代行不行。</li>
@@ -382,7 +382,7 @@
         helper(root.right, result, level+1);
     }    
 }
-</code></pre><p>迭代一般就是使用额外的Stack，Queue或者其他的数据结构来做记录。</p>
+</code></pre><p>迭代 - 空间复杂度，时间复杂度</p>
 <pre><code>public class Solution {
     public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) {
         List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
@@ -409,7 +409,12 @@
         return result;
     }
 }
-</code></pre><h1 id="Inorder"><a href="#Inorder" class="headerlink" title="Inorder"></a>Inorder</h1><p>递归</p>
+</code></pre><h1 id="Inorder"><a href="#Inorder" class="headerlink" title="Inorder"></a>Inorder</h1><ol>
+<li><strong>入口</strong>。</li>
+<li><strong>出口</strong>。出口就是当节点是null的时候，就是到了null叶子，返回。</li>
+<li>空间复杂度，时间复杂度。</li>
+</ol>
+<p>递归</p>
 <pre><code>public class Solution {
     public List&lt;Integer&gt; inorderTraversal(TreeNode root) {
         List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
@@ -424,32 +429,41 @@
         inorderTraversalHelper(result, root.right);
     }
 }
-</code></pre><p>依旧是用一个Stack</p>
+</code></pre><p>迭代 - 空间复杂度，时间复杂度</p>
 <pre><code>public class Solution {
     public List&lt;Integer&gt; inorderTraversal(TreeNode root) {
         List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
         if(root == null) return result;
 
         Stack&lt;TreeNode&gt; s = new Stack&lt;&gt;();
+        # 先存入root节点。
         s.push(root);
-
+        # in order， left-root-right, 先找到root的left节点
         TreeNode current = root.left;
         while(!s.isEmpty() || current != null){
+            # 这个if判断为了找到最左的子节点。
             if(current != null){
                 s.push(current);
                 current = current.left;
             }
             else{
+                # 首先，因为上一个if找到最左的子节点，stack pop出的是整棵树的最左的节点，如果此节点有右子树，那么此节点相当于也是一个current root。
                 current = s.peek();
                 result.add(current.val);
                 s.pop();
                 current = current.right;
             }
+            # 重复过程。找到每个current root最左的子节点，。
         }
         return result;
     }
 }
-</code></pre><h1 id="Preorder"><a href="#Preorder" class="headerlink" title="Preorder"></a>Preorder</h1><p>递归</p>
+</code></pre><h1 id="Preorder"><a href="#Preorder" class="headerlink" title="Preorder"></a>Preorder</h1><ol>
+<li><strong>入口</strong>。</li>
+<li><strong>出口</strong>。出口就是当节点是null的时候，就是到了null叶子，返回。</li>
+<li>空间复杂度，时间复杂度。</li>
+</ol>
+<p>递归</p>
 <pre><code>public class Solution {
     public List&lt;Integer&gt; preorderTraversal(TreeNode root) {
         List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
@@ -464,26 +478,35 @@
         preorderTraversalHelper(result, root.right);
     }
 }
-</code></pre><p>迭代</p>
+</code></pre><p>迭代 - 空间复杂度，时间复杂度</p>
 <pre><code>public class Solution {
     public List&lt;Integer&gt; preorderTraversal(TreeNode root) {
         List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
+        # 如果root是null，就直接返回空的list
         if(root == null) return result;
-
+        # 增加一个stack用于记录
         Stack&lt;TreeNode&gt; s = new Stack&lt;&gt;();
+        # pre order，root-left-right。先存入root节点。
         s.push(root);
 
         while(!s.isEmpty()){
+            # 每次直接pop出当前节点。并添加到结果中。
             TreeNode current = s.pop();
             result.add(current.val);
-
+            # 因为stack， FILO。又因为root-left-right。所以先存入right进stack，再存入left。
+            # 然后当stack pop的时候，会先得到left，再right。符合需求。
             if(current.right != null) s.push(current.right);
             if(current.left != null) s.push(current.left);
         }
         return result;
     }
 }
-</code></pre><h1 id="Postorder"><a href="#Postorder" class="headerlink" title="Postorder"></a>Postorder</h1><p>递归</p>
+</code></pre><h1 id="Postorder"><a href="#Postorder" class="headerlink" title="Postorder"></a>Postorder</h1><ol>
+<li><strong>入口</strong>。</li>
+<li><strong>出口</strong>。出口就是当节点是null的时候，就是到了null叶子，返回。</li>
+<li>空间复杂度，时间复杂度。</li>
+</ol>
+<p>递归</p>
 <pre><code>public class Solution {
     public List&lt;Integer&gt; postorderTraversal(TreeNode root) {
         List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
@@ -498,30 +521,37 @@
         result.add(root.val);
     }
 }
-</code></pre><p>迭代</p>
+</code></pre><p>迭代 - 空间复杂度，时间复杂度</p>
 <pre><code>public class Solution {
     public List&lt;Integer&gt; postorderTraversal(TreeNode root) {
         List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
         if(root == null) return result;
 
         Stack&lt;TreeNode&gt; s = new Stack&lt;&gt;();
+        # 先放入root
         s.push(root);
-
+        # 需要一个record的节点，用来记录之前被访问的node
         TreeNode record = null;
-
+        # 只要判断stack，因为stack空的情况就是root也被输出了，就是整棵树遍历完了。
         while(!s.isEmpty()){
             TreeNode current = s.peek();
-
+            # 三个条件。1. 根节点的时候root，2. 还在往左找，record.left == current，3. 还在往右找，record.right == current
             if(record == null || record.left == current || record.right == current){
+                # 一直往左找，左节点加入stack
                 if(current.left != null){
                        s.push(current.left);
-                }else if(current.right != null){
+                }
+                # 如果没有左节点，当前层的右节点加入stack
+                else if(current.right != null){
                        s.push(current.right);
-                }else{
+                }
+                # 没有左节点，并且没有右节点，根据post order，left-right-root。当前node就是一个当前的root，pop出，并加入结果list
+                else{
                     s.pop();
                     result.add(current.val);
                 }
             }
+            # 当pop出一个左节点的同时，需要double check当前节点有没有右节点，有就加入stack继续以上操作。没有就可以直接pop当前节点，因为它就是一个当前的root。
             else if(record == current.left){
                 if(current.right != null){
                     s.push(current.right);
@@ -529,10 +559,13 @@
                     s.pop();
                     result.add(current.val);
                 }
-            }else if(record == current.right){
+            }
+            # 根据上一条，如果pop出的是右节点，那么根据post order的规则，当前节点就是一个当前的root，可以直接pop出，加入结果list。
+            else if(record == current.right){
                 s.pop();
                 result.add(current.val);
             }
+            # 记得记录之前的一个节点。
             record = current;
         }
         return result;
@@ -540,6 +573,9 @@
 }    
 </code></pre><hr>
 <p>小结：</p>
+<ol>
+<li>迭代一般就是使用额外的Stack，Queue或者其他的数据结构来做记录。</li>
+</ol>
 
       
     </div>
