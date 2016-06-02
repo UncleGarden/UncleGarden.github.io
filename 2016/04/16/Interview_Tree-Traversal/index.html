@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/16/Interview_Tree-Traversal/index.html">
 <meta property="og:site_name" content="Garden">
 <meta property="og:description" content="自挂东南枝">
-<meta property="og:updated_time" content="2016-06-01T08:04:00.000Z">
+<meta property="og:updated_time" content="2016-06-02T20:55:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Interview - Tree - Traversal">
 <meta name="twitter:description" content="自挂东南枝">
@@ -364,7 +364,7 @@
 <li><strong>入口</strong>。对于level order，我们肯定需要记录一下层，然后才能准确的对节点进行操作。入口当然就是root，第0层。同时，这个层的记录，也是用来判断是否需要增加一个新的list来添加新一层的节点值。</li>
 <li><strong>出口</strong>。出口就是当节点是null的时候，就是到了null叶子，返回。</li>
 <li><strong>Test Case</strong>。</li>
-<li>空间复杂度，时间复杂度。？，O（n）</li>
+<li>空间复杂度，O(logN)，时间复杂度，O（N）[如果不考虑栈空间，空间复杂度为O(1)]</li>
 <li>Follow up。递归之后，一般考虑迭代行不行。</li>
 </ol>
 <pre><code>public class Solution {
@@ -382,7 +382,7 @@
         helper(root.right, result, level+1);
     }    
 }
-</code></pre><p>迭代 - 空间复杂度，时间复杂度</p>
+</code></pre><p>迭代 - 空间复杂度，O(logN)，时间复杂度，O（N）</p>
 <pre><code>public class Solution {
     public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) {
         List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
@@ -412,7 +412,7 @@
 </code></pre><h1 id="Inorder"><a href="#Inorder" class="headerlink" title="Inorder"></a>Inorder</h1><ol>
 <li><strong>入口</strong>。</li>
 <li><strong>出口</strong>。出口就是当节点是null的时候，就是到了null叶子，返回。</li>
-<li>空间复杂度，时间复杂度。</li>
+<li>空间复杂度，O(logN)，时间复杂度，O（N）[如果不考虑栈空间，空间复杂度为O(1)]</li>
 </ol>
 <p>递归</p>
 <pre><code>public class Solution {
@@ -429,7 +429,7 @@
         inorderTraversalHelper(result, root.right);
     }
 }
-</code></pre><p>迭代 - 空间复杂度，时间复杂度</p>
+</code></pre><p>迭代 - 空间复杂度，O(logN)，时间复杂度，O（N）</p>
 <pre><code>public class Solution {
     public List&lt;Integer&gt; inorderTraversal(TreeNode root) {
         List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
@@ -461,7 +461,7 @@
 </code></pre><h1 id="Preorder"><a href="#Preorder" class="headerlink" title="Preorder"></a>Preorder</h1><ol>
 <li><strong>入口</strong>。</li>
 <li><strong>出口</strong>。出口就是当节点是null的时候，就是到了null叶子，返回。</li>
-<li>空间复杂度，时间复杂度。</li>
+<li>空间复杂度，O(logN)，时间复杂度，O（N）[如果不考虑栈空间，空间复杂度为O(1)]</li>
 </ol>
 <p>递归</p>
 <pre><code>public class Solution {
@@ -478,7 +478,7 @@
         preorderTraversalHelper(result, root.right);
     }
 }
-</code></pre><p>迭代 - 空间复杂度，时间复杂度</p>
+</code></pre><p>迭代 - 空间复杂度，O(logN)，时间复杂度，O（N）</p>
 <pre><code>public class Solution {
     public List&lt;Integer&gt; preorderTraversal(TreeNode root) {
         List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
@@ -504,7 +504,7 @@
 </code></pre><h1 id="Postorder"><a href="#Postorder" class="headerlink" title="Postorder"></a>Postorder</h1><ol>
 <li><strong>入口</strong>。</li>
 <li><strong>出口</strong>。出口就是当节点是null的时候，就是到了null叶子，返回。</li>
-<li>空间复杂度，时间复杂度。</li>
+<li>空间复杂度，O(logN)，时间复杂度，O（N）[如果不考虑栈空间，空间复杂度为O(1)]</li>
 </ol>
 <p>递归</p>
 <pre><code>public class Solution {
@@ -521,7 +521,7 @@
         result.add(root.val);
     }
 }
-</code></pre><p>迭代 - 空间复杂度，时间复杂度</p>
+</code></pre><p>迭代 - 空间复杂度，O(logN)，时间复杂度，O（N）</p>
 <pre><code>public class Solution {
     public List&lt;Integer&gt; postorderTraversal(TreeNode root) {
         List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
@@ -574,7 +574,8 @@
 </code></pre><hr>
 <p>小结：</p>
 <ol>
-<li>迭代一般就是使用额外的Stack，Queue或者其他的数据结构来做记录。</li>
+<li>迭代一般就是使用额外的Stack，Queue或者其他的数据结构来模仿递归的栈空间。</li>
+<li>递归之后follow up考察迭代的理由。因为递归如果规模太大的话会容易造成堆栈溢出。[可能会问Java堆和栈的区别？]一定要用递归的话，可以考虑重写成<strong>尾递归</strong>。</li>
 </ol>
 
       
