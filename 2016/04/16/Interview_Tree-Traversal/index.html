@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/16/Interview_Tree-Traversal/index.html">
 <meta property="og:site_name" content="Garden">
 <meta property="og:description" content="自挂东南枝">
-<meta property="og:updated_time" content="2016-06-02T20:55:52.000Z">
+<meta property="og:updated_time" content="2016-06-03T22:08:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Interview - Tree - Traversal">
 <meta name="twitter:description" content="自挂东南枝">
@@ -364,7 +364,7 @@
 <li><strong>入口</strong>。对于level order，我们肯定需要记录一下层，然后才能准确的对节点进行操作。入口当然就是root，第0层。同时，这个层的记录，也是用来判断是否需要增加一个新的list来添加新一层的节点值。</li>
 <li><strong>出口</strong>。出口就是当节点是null的时候，就是到了null叶子，返回。</li>
 <li><strong>Test Case</strong>。</li>
-<li>空间复杂度，O(logN)，时间复杂度，O（N）[如果不考虑栈空间，空间复杂度为O(1)]</li>
+<li>空间复杂度，O(N)[因为stack中最多存的就是最后一层的元素，最多的case是complete tree最后一层最多是n/2个节点]，时间复杂度，O（N）[如果不考虑栈空间，空间复杂度为O(1)]</li>
 <li>Follow up。递归之后，一般考虑迭代行不行。</li>
 </ol>
 <pre><code>public class Solution {
@@ -382,7 +382,7 @@
         helper(root.right, result, level+1);
     }    
 }
-</code></pre><p>迭代 - 空间复杂度，O(logN)，时间复杂度，O（N）</p>
+</code></pre><p>迭代 - 空间复杂度，O(N)，时间复杂度，O（N）</p>
 <pre><code>public class Solution {
     public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) {
         List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
